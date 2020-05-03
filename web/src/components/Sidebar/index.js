@@ -9,24 +9,24 @@ function Sidebar({}) {
   return (
     <div
       style={{
-        width: '200px',
+        width: '300px',
         height: '100%',
         background: 'white',
       }}
     >
       <div
         style={{
-          width: '195px',
+          width: '290px',
           background: '#f4f4f4',
           height: '100%',
-          borderRadius: '25px 0px 0px 25px',
+          borderRadius: '34px 0px 0px 34px',
         }}
       >
         <h2
           style={{
             color: '#2b2b2b',
-            fontSize: '12px',
-            padding: '25px 0px 15px 25px',
+            fontSize: '16px',
+            padding: '34px 0px 17px 34px',
           }}
         >
           Últimas perguntas
@@ -34,42 +34,42 @@ function Sidebar({}) {
         
         <div
           style={{
-            height: '190px',
+            height: '254px',
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'space-between',
             color: '#0045ff',
-            lineHeight: '22px',
+            lineHeight: '30px',
           }}
         >
           <p
             style={{
-              paddingLeft: '25px',
-              fontSize: '12px',
-              width: '200px',
+              paddingLeft: '34px',
+              fontSize: '16px',
+              width: '300px',
               background: '#0045ff',
               color: 'white',
-              borderRadius: '0px 25px 25px 0px'
+              borderRadius: '0px 34px 34px 0px'
             }}
           >
             Todas as perguntas
           </p>
           <p
             style={{
-              paddingLeft: '25px',
-              fontSize: '12px'
+              paddingLeft: '34px',
+              fontSize: '16px'
             }}
           >Entrega</p>
           <p
             style={{
-              paddingLeft: '25px',
-              fontSize: '12px'
+              paddingLeft: '34px',
+              fontSize: '16px'
             }}
           >Funcionalidade</p>
           <p
             style={{
-              paddingLeft: '25px',
-              fontSize: '12px',
+              paddingLeft: '34px',
+              fontSize: '16px',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'flex-start',
@@ -77,8 +77,8 @@ function Sidebar({}) {
           >Pagamento
             <span
               style={{
-                height: '18px',
-                padding: '0px 5px',
+                height: '24px',
+                padding: '0px 7px',
                 background: '#ff1515',
                 color: 'white',
                 display: 'flex',
@@ -86,21 +86,21 @@ function Sidebar({}) {
                 alignItems: 'center',
                 marginLeft: '10px',
                 borderRadius: '50px',
-                fontSize: '9px',
+                fontSize: '12px',
                 fontWeight: 'bold',
               }}
             >100</span>
           </p>
           <p
             style={{
-              paddingLeft: '25px',
-              fontSize: '12px'
+              paddingLeft: '34px',
+              fontSize: '16px'
             }}
           >Cancelamento</p>
           <p
             style={{
-              paddingLeft: '25px',
-              fontSize: '12px'
+              paddingLeft: '34px',
+              fontSize: '16px'
             }}
           >Descrição</p>
         </div>
