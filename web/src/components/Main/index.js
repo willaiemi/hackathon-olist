@@ -1,6 +1,8 @@
 import React from 'react';
 import Sidebar from '../Sidebar';
 
+import Graph from '../Graph';
+
 function Main() {
   return (
     <div
@@ -45,6 +47,7 @@ function Main() {
             Exportar
           </button>
         </div>
+        <Graph />
       </div>
     </div>
   );
