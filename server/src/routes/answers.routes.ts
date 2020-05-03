@@ -10,7 +10,7 @@ const answersRoute = Router();
 answersRoute.get('/', async (req, res) => {
   const answerRepository = getRepository(Answer);
 
-  const answers = answerRepository.find();
+  const answers = await answerRepository.find();
 
   return res.json({
     answers
