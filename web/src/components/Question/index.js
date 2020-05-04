@@ -7,16 +7,16 @@ import {
   SendButton,
 } from './style';
 
-function Question() {
+function Question({ item }) {
   return (
     <QuestionContainer>
       <ImageOuterContainer>
-        <img src="https://olist-v2-dev.s3.amazonaws.com/products-images/821b814105e186976b67d56eb381a3a855f275c0.jpeg" />
+        <img src={item.img} />
       </ImageOuterContainer>
 
       <QuestionContent>
-        <h4>BM275GC - Monitor Gamer Bluecase Led 27 Curvo</h4>
-        <h3>Em quantas vezes posso fazer o monitor?</h3>
+        <h4>{item.title}</h4>
+        <h3>{item.question}</h3>
         <div>
           <CustomTextareaAutosize
             type="text"
