@@ -1,7 +1,17 @@
 import styled from 'styled-components';
 
 export const Container = styled.section`
+  width: 100%;
+  max-height: 300px;
   margin-left: 22px;
+  display: flex;
+
+  overflow: hidden;
+
+  border-radius: 37px;
+  background: #fff;
+  backdrop-filter: blur(30px);
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
 `;
 
 export const QuestionsContainer = styled.div`
@@ -52,3 +62,16 @@ export const QuestionsCount = styled.div`
     }
   }
 `;
+
+export const GraphContainer = styled.div`
+  flex: 1;
+  padding: 0 22px;
+
+  p {
+    margin: 22px 0;
+    color: #252e48;
+    font-weight: bold;
+    font-size: 16px;
+  }
+`;
+
