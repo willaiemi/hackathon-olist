@@ -1,23 +1,23 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Line } from 'react-chartjs-2';
 
 import { Container, QuestionsContainer, QuestionsCount, StatisticText, GraphContainer } from './styles';
 
-import { options, datasetsColor, labelType } from './chartConfigs';
+import { options, datasetsColor, labelType, dataConfig } from './chartConfigs';
 
-function Graph({ label = 'month' }) {
-  const data = {
+function Graph({ label = 'month', graphData }) {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    setData(dataConfig[graphData]);
+  }, [graphData]);
+
+  const dataChart = {
     labels: labelType[label],
     datasets: [
       {
         ...datasetsColor,
-        data: [
-          65, 59, 80, 81, 56, 55, 40,
-          22, 32, 42, 52, 62, 72, 39,
-          65, 59, 80, 81, 56, 55, 40,
-          65, 59, 80, 81, 56, 55, 40,
-          10, 5,
-        ]
+        data,
       }
     ],
   };
@@ -46,7 +46,7 @@ function Graph({ label = 'month' }) {
 
       <GraphContainer>
         <p>Número total de Perguntas</p>
-        <Line data={data} options={options} height={100} />
+        <Line data={dataChart} options={options} height={100} />
       </GraphContainer>
     </Container>
   );

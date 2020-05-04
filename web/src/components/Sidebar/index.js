@@ -1,114 +1,70 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React, { useState, useEffect } from 'react'
 
-const propTypes = {
-  
-}
+import {
+  SidebarContainer,
+  GreyContainer,
+  Navbar,
+  NavbarItem,
+} from './style';
 
-function Sidebar({}) {
+function Sidebar({ 
+  tabActive,
+  setTabActive,
+ }) {
   return (
-    <div
-      style={{
-        width: '300px',
-        height: '100%',
-        background: 'white',
-      }}
-    >
-      <div
-        style={{
-          width: '290px',
-          background: '#f4f4f4',
-          height: '100%',
-          borderRadius: '34px 0px 0px 34px',
-        }}
-      >
-        <h2
-          style={{
-            color: '#2b2b2b',
-            fontSize: '16px',
-            padding: '34px 0px 17px 34px',
-          }}
-        >
-          Últimas perguntas
-        </h2>
+    <SidebarContainer>
+      <GreyContainer>
+        <h2>Últimas perguntas</h2>
         
-        <div
-          style={{
-            height: '254px',
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'space-between',
-            color: '#0045ff',
-            lineHeight: '30px',
-          }}
-        >
-          <p
-            style={{
-              paddingLeft: '34px',
-              fontSize: '16px',
-              width: '300px',
-              background: '#0045ff',
-              color: 'white',
-              borderRadius: '0px 34px 34px 0px'
-            }}
+        <Navbar>
+          <NavbarItem
+            onClick={() => setTabActive('all')}
+            active={tabActive === 'all'}
           >
             Todas as perguntas
-          </p>
-          <p
-            style={{
-              paddingLeft: '34px',
-              fontSize: '16px'
-            }}
-          >Entrega</p>
-          <p
-            style={{
-              paddingLeft: '34px',
-              fontSize: '16px'
-            }}
-          >Funcionalidade</p>
-          <p
-            style={{
-              paddingLeft: '34px',
-              fontSize: '16px',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'flex-start',
-            }}
-          >Pagamento
-            <span
-              style={{
-                height: '24px',
-                padding: '0px 7px',
-                background: '#ff1515',
-                color: 'white',
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center',
-                marginLeft: '10px',
-                borderRadius: '50px',
-                fontSize: '12px',
-                fontWeight: 'bold',
-              }}
-            >100</span>
-          </p>
-          <p
-            style={{
-              paddingLeft: '34px',
-              fontSize: '16px'
-            }}
-          >Cancelamento</p>
-          <p
-            style={{
-              paddingLeft: '34px',
-              fontSize: '16px'
-            }}
-          >Descrição</p>
-        </div>
-      </div>
-    </div>
+          </NavbarItem>
+
+          <NavbarItem
+            onClick={() => setTabActive('delivery')}
+            active={tabActive === 'delivery'}
+          >
+            Entrega
+            <span>1</span>
+          </NavbarItem>
+
+          <NavbarItem
+            onClick={() => setTabActive('functionality')}
+            active={tabActive === 'functionality'}
+          >
+            Funcionalidade
+          </NavbarItem>
+
+          <NavbarItem
+            onClick={() => setTabActive('payment')}
+            active={tabActive === 'payment'}
+          >
+            Pagamento
+            <span>3</span>
+          </NavbarItem>
+
+          <NavbarItem
+            onClick={() => setTabActive('cancellation')}
+            active={tabActive === 'cancellation'}
+          >
+            Cancelamento
+          </NavbarItem>
+
+          <NavbarItem
+            onClick={() => setTabActive('description')}
+            active={tabActive === 'description'}
+          >
+            Descrição
+            <span>1</span>
+          </NavbarItem>
+        </Navbar>
+      </GreyContainer>
+    </SidebarContainer>
   )
 }
-
-Sidebar.propTypes = propTypes
 
 export default Sidebar;
