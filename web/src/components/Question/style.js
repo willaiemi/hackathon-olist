@@ -71,3 +71,12 @@ export const SendButton = styled.button`
   align-self: flex-end;
   cursor: pointer;
 `;
+
+export const WithoutAnyQuestion = styled.p`
+  width: 100%;
+  text-align: center;
+
+  color: #252e48;
+  font-weight: bold;
+  font-size: 16px;
+`;
