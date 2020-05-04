@@ -2,14 +2,14 @@ import styled, { css } from 'styled-components';
 
 export const SidebarContainer = styled.div`
   width: 300px;
-  height: 100%;
+  min-height: 100%;
   background: white;
 `;
 
 export const GreyContainer = styled.div`
   width: 290px;
   background: #f4f4f4;
-  height: 100%;
+  min-height: 100%;
   border-radius: 34px 0px 0px 34px;
   padding-bottom: 34px;
 
