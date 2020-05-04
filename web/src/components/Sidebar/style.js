@@ -47,7 +47,8 @@ export const NavbarItem = styled.li`
   `}
 
   span {
-    height: 24px;
+    width: 18px;
+    height: 18px;
     padding: 0px 7px;
     background: #ff1515;
     color: white;
@@ -55,8 +56,8 @@ export const NavbarItem = styled.li`
     justify-content: center;
     align-items: center;
     margin-left: 10px;
-    border-radius: 50px;
-    font-size: 12px;
+    border-radius: 50%;
+    font-size: 10px;
     font-weight: bold;
   }
 `;

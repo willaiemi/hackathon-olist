@@ -88,7 +88,7 @@ export const Tab = styled.div`
   font-size: 16px;
   border-radius: 30px 30px 0 0;
   margin-right: 10px;
-  box-shadow: 0 3px 6px 0 black;
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.57);
   font-weight: bold;
 
   ${props => props.active && `
@@ -101,4 +101,6 @@ export const Tab = styled.div`
 export const WhiteBox = styled.div`
   width: 100%;
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+  padding: 22px 0;
+  margin-bottom: 42px;
 `;
