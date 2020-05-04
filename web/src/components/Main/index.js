@@ -40,7 +40,7 @@ function Main() {
           </SelectGraphPeriod>
         </LeftAlignedItemsRow>
         
-        <Graph />
+        <Graph graphData={tabName} />
         
         <div>
           <div style={{ display: 'flex', }}>
