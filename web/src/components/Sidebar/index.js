@@ -7,13 +7,10 @@ import {
   NavbarItem,
 } from './style';
 
-function Sidebar({ setActualTab }) {
-  const [tabActive, setTabActive] = useState('');
-
-  useEffect(() => {
-    setActualTab(tabActive);
-  }, [tabActive]);
-
+function Sidebar({ 
+  tabActive,
+  setTabActive,
+ }) {
   return (
     <SidebarContainer>
       <GreyContainer>

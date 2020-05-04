@@ -17,11 +17,14 @@ import Graph from '../Graph';
 
 function Main() {
   const [list, setList] = useState([0, 1, 2, 3, 4, 5, 6, 7, 8, 9]);
-  const [tabName, setTabName] = useState('');
+  const [tabName, setTabName] = useState('all');
 
   return (
     <MainContainer>
-      <Sidebar></Sidebar>
+      <Sidebar
+        tabActive={tabName}
+        setTabActive={setTabName}
+      ></Sidebar>
       <MainContent>
         <LeftAlignedItemsRow>
           <ExportXLSXButton>
