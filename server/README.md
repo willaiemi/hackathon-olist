@@ -1,11 +1,7 @@
-# hackathon-olist
-
 <p align="center">
-  <a href="https://nodejs.org/">
-    <img
-      alt="Node.js"
-      src="https://nodejs.org/static/images/logo-light.svg"
-      width="400"
-    />
-  </a>
+  <img
+    alt="StovePipe"
+    src="https://user-images.githubusercontent.com/43147902/81023362-7a5d2100-8e46-11ea-94dc-cbadf2d6fbbb.png"
+    width="400"
+  />
 </p>
