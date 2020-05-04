@@ -1,5 +1,5 @@
-import React from 'react'
-// import PropTypes from 'prop-types'
+import React, { useState, useEffect } from 'react'
+
 import {
   SidebarContainer,
   GreyContainer,
@@ -7,34 +7,65 @@ import {
   NavbarItem,
 } from './style';
 
-const propTypes = {
-  
-}
+function Sidebar({ setActualTab }) {
+  const [tabActive, setTabActive] = useState('');
 
-function Sidebar({}) {
+  useEffect(() => {
+    setActualTab(tabActive);
+  }, [tabActive]);
+
   return (
     <SidebarContainer>
       <GreyContainer>
         <h2>Últimas perguntas</h2>
         
         <Navbar>
-          <NavbarItem active>
+          <NavbarItem
+            onClick={() => setTabActive('all')}
+            active={tabActive === 'all'}
+          >
             Todas as perguntas
           </NavbarItem>
-          <NavbarItem>Entrega</NavbarItem>
-          <NavbarItem>Funcionalidade</NavbarItem>
-          <NavbarItem>
+
+          <NavbarItem
+            onClick={() => setTabActive('delivery')}
+            active={tabActive === 'delivery'}
+          >
+            Entrega
+          </NavbarItem>
+
+          <NavbarItem
+            onClick={() => setTabActive('functionality')}
+            active={tabActive === 'functionality'}
+          >
+            Funcionalidade
+          </NavbarItem>
+
+          <NavbarItem
+            onClick={() => setTabActive('payment')}
+            active={tabActive === 'payment'}
+          >
             Pagamento
             <span>100</span>
           </NavbarItem>
-          <NavbarItem>Cancelamento</NavbarItem>
-          <NavbarItem>Descrição</NavbarItem>
+
+          <NavbarItem
+            onClick={() => setTabActive('cancellation')}
+            active={tabActive === 'cancellation'}
+          >
+            Cancelamento
+          </NavbarItem>
+
+          <NavbarItem
+            onClick={() => setTabActive('description')}
+            active={tabActive === 'description'}
+          >
+            Descrição
+          </NavbarItem>
         </Navbar>
       </GreyContainer>
     </SidebarContainer>
   )
 }
-
-Sidebar.propTypes = propTypes
 
 export default Sidebar;

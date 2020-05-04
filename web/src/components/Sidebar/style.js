@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const SidebarContainer = styled.div`
   width: 300px;
@@ -12,7 +12,6 @@ export const GreyContainer = styled.div`
   height: 100%;
   border-radius: 34px 0px 0px 34px;
   padding-bottom: 34px;
-  overflow: visible scroll;
 
   h2 {
     color: #2b2b2b;
@@ -38,13 +37,13 @@ export const NavbarItem = styled.li`
   justify-content: flex-start;
   cursor: pointer;
 
-  ${props => props.active && `
+  ${props => props.active && css`
     padding-left: 34px;
     font-size: 16px;
     width: 300px;
     background: #0045ff;
     color: white;
-    borderRadius: 0px 34px 34px 0px;
+    border-radius: 0px 34px 34px 0px;
   `}
 
   span {
