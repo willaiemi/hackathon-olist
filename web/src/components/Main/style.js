@@ -32,11 +32,24 @@ export const LeftAlignedItemsRow = styled.div`
 export const ExportXLSXButton = styled.button`
   height: 30px;
   width: 120px;
+  padding: 0 12px;
   border: 1px solid #97a3b5;
   color: #97a3b5;
   background: white;
   border-radius: 24px;
   font-size: 14px;
+
+  display: flex;
+  align-items: center;
+
+  span {
+    flex: 1;
+  }
+
+  img {
+    width: 17px;
+    height: 17px;
+  }
 `;
 
 export const SelectGraphPeriod = styled.select`

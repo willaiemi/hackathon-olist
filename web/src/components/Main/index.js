@@ -14,6 +14,8 @@ import {
   WhiteBox,
 } from './style';
 
+import iconXLSX from '../../assets/icon-xlsx.svg';
+
 function Main() {
   const [list, setList] = useState([
     {
@@ -59,7 +61,8 @@ function Main() {
       <MainContent>
         <LeftAlignedItemsRow>
           <ExportXLSXButton>
-            Exportar
+            <img src={iconXLSX} />
+            <span>Exportar</span>
           </ExportXLSXButton>
         </LeftAlignedItemsRow>
         
