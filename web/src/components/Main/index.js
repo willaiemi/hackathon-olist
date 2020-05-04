@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import Sidebar from '../Sidebar';
 import Graph from '../Graph';
 import Question from '../Question';
@@ -23,20 +23,24 @@ function Main() {
       img: 'https://olist-v2-dev.s3.amazonaws.com/products-images/821b814105e186976b67d56eb381a3a855f275c0.jpeg',
       title: 'BM275GC - Monitor Gamer Bluecase Led 27 Curvo',
       question: 'Em quantas vezes posso fazer o monitor?',
+      type: 'payment',
     },
     {
       id: 2,
       img: 'https://olist-v2-dev.s3.amazonaws.com/products-images/d2f3973f-5acd-4346-9f09-a3df6b3091db.jpg',
       title: 'TG997MC - Teclado Gamer Multimídia CHROMATIC GK-710 LED Fortrek',
       question: 'Posso pagar com cartão de crédito?',
+      type: 'payment',
     },
     {
-      id: 2,
+      id: 3,
       img: 'https://olist-v2-dev.s3.amazonaws.com/products-images/0c9f34e4489441be8837abe68b0f6bbcc58a5521.jpeg',
       title: 'CI544WW - Carregador Para Iphone X 5W Usb Power Lightning',
       question: 'Vocês aceitam boleto?',
+      type: 'payment',
     }
   ]);
+
   const [tabName, setTabName] = useState('all');
   const [tabTitle, setTabTitle] = useState('Todas as perguntas');
 
@@ -45,11 +49,44 @@ function Main() {
       case 'all':
         setTabTitle('Todas as perguntas');
         break;
+      case 'delivery':
+        setTabTitle('Perguntas sobre entrega');
+        break;
       case 'payment':
         setTabTitle('Perguntas sobre pagamento');
         break;
+      case 'cancellation':
+        setTabTitle('Perguntas sobre cancelamento');
+        break;
+      case 'description':
+        setTabTitle('Perguntas sobre descrição do produto');
+        break;
+      case 'functionality':
+        setTabTitle('Perguntas sobre funcionalidade do produto');
+        break;
       default:
     }
+  }, [tabName]);
+
+  const renderQuestions = useCallback(() => {
+    const listItems = list.filter(item => item.type === tabName || tabName === 'all');
+
+    if (listItems.length) {
+      return listItems.map(item => {
+        return (
+          <Question key={item.id} item={item} />  
+        );
+      })
+    } else {
+      return (
+        <Question key={null} item={null} />  
+      );
+    }
+
+  }, [tabName]);
+
+  useEffect(() => {
+    renderQuestions();
   }, [tabName]);
 
   return (
@@ -102,12 +139,7 @@ function Main() {
           </QuestionsInformation>
           
           <WhiteBox>
-            {list.map((item) => (
-              <Question
-                key={item.id}
-                item={item}
-              />
-            ))}
+            {renderQuestions()}
           </WhiteBox>
         
         </div>
