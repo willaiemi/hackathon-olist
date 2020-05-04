@@ -2,7 +2,6 @@ import React from 'react';
 import {
   QuestionContainer,
   ImageOuterContainer,
-  ImageInnerContainer,
   QuestionContent,
   CustomTextareaAutosize,
   SendButton,
@@ -10,28 +9,25 @@ import {
 
 function Question() {
   return (
-    <>
-      <QuestionContainer>
-        <ImageOuterContainer>
-          <ImageInnerContainer>
-          </ImageInnerContainer>
-        </ImageOuterContainer>
+    <QuestionContainer>
+      <ImageOuterContainer>
+        <img src="https://olist-v2-dev.s3.amazonaws.com/products-images/821b814105e186976b67d56eb381a3a855f275c0.jpeg" />
+      </ImageOuterContainer>
 
-        <QuestionContent>
-          <h4>SKU - Máquina de lavar roupa 30" lorem ipsum lots of words now wow uhuu lorem ipsum lots of words now wow uhuu</h4>
-          <h3>O que é isso?</h3>
-          <div>
-            <CustomTextareaAutosize
-              type="text"
-              placeholder="Digite sua resposta"
-            ></CustomTextareaAutosize>
-            <SendButton>
-              Enviar
-            </SendButton>
-          </div>
-        </QuestionContent>
-      </QuestionContainer>
-    </>
+      <QuestionContent>
+        <h4>BM275GC - Monitor Gamer Bluecase Led 27 Curvo</h4>
+        <h3>Em quantas vezes posso fazer o monitor?</h3>
+        <div>
+          <CustomTextareaAutosize
+            type="text"
+            placeholder="Digite sua resposta"
+          ></CustomTextareaAutosize>
+          <SendButton>
+            Enviar
+          </SendButton>
+        </div>
+      </QuestionContent>
+    </QuestionContainer>
   );
 }
 

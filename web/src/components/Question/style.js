@@ -3,7 +3,9 @@ import TextareaAutosize from 'react-textarea-autosize';
 
 export const QuestionContainer = styled.div`
   width: 100%;
-  margin: 5px 0;
+  padding: 22px 0;
+  margin-bottom: 22px;
+
   display: flex;
   align-items: flex-start;
   padding-top: 5px;
@@ -14,12 +16,12 @@ export const ImageOuterContainer = styled.div`
   margin: 0 20px;
   display: flex;
   justify-content: center;
-`;
+  align-items: center;
 
-export const ImageInnerContainer = styled.div`
-  height: 100px;
-  width: 100px;
-  border: 1px solid #707070;
+  img {
+    height: 100px;
+    width: 100px;
+  }
 `;
 
 export const QuestionContent = styled.div`
@@ -55,6 +57,8 @@ export const CustomTextareaAutosize = styled(TextareaAutosize)`
   font-size: 18px;
   border-bottom: 2px solid #0045ff;
   resize: none;
+
+  padding: 4px 0;
 `;
 
 export const SendButton = styled.button`
