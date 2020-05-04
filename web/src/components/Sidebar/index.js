@@ -20,6 +20,8 @@ function Sidebar({}) {
           background: '#f4f4f4',
           height: '100%',
           borderRadius: '34px 0px 0px 34px',
+          paddingBottom: '34px',
+          overflow: 'visible scroll',
         }}
       >
         <h2
@@ -49,7 +51,7 @@ function Sidebar({}) {
               width: '300px',
               background: '#0045ff',
               color: 'white',
-              borderRadius: '0px 34px 34px 0px'
+              borderRadius: '0px 34px 34px 0px',
             }}
           >
             Todas as perguntas
