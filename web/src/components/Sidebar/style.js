@@ -35,6 +35,7 @@ export const NavbarItem = styled.li`
   display: flex;
   align-items: center;
   justify-content: flex-start;
+  transition: 0.3s ease-out;
   cursor: pointer;
 
   ${props => props.active && css`

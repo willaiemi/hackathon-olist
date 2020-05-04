@@ -24,6 +24,7 @@ function Main() {
       title: 'BM275GC - Monitor Gamer Bluecase Led 27 Curvo',
       question: 'Em quantas vezes posso fazer o monitor?',
       type: 'payment',
+      suggestion: 'Você pode fazer o pagamento em até 6x sem juros. Você pode fazer o pagamento em até 6x sem juros. Você pode fazer o pagamento em até 6x sem juros. Você pode fazer o pagamento em até 6x sem juros.',
     },
     {
       id: 2,
@@ -31,6 +32,7 @@ function Main() {
       title: 'TG997MC - Teclado Gamer Multimídia CHROMATIC GK-710 LED Fortrek',
       question: 'Posso pagar com cartão de crédito?',
       type: 'payment',
+      suggestion: 'Sim, temos a opção de pagamento com cartão de crédito.',
     },
     {
       id: 3,
@@ -38,6 +40,7 @@ function Main() {
       title: 'CI544WW - Carregador Para Iphone X 5W Usb Power Lightning',
       question: 'Vocês aceitam boleto?',
       type: 'payment',
+      suggestion: 'No momento o Mercado Livre não está aceitando boleto.',
     }
   ]);
 

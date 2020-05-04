@@ -1,11 +1,10 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import TextareaAutosize from 'react-textarea-autosize';
 
 export const QuestionContainer = styled.div`
   width: 100%;
   padding: 22px 0;
   margin-bottom: 22px;
-
   display: flex;
   align-items: flex-start;
   padding-top: 5px;
@@ -41,13 +40,15 @@ export const QuestionContent = styled.div`
     font-size: 18px;
     margin-top: 10px;
   }
+`;
 
-  div {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    margin-top: 20px;
-  }
+export const AnswerContainer = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  position: relative;
+  background: white;
 `;
 
 export const CustomTextareaAutosize = styled(TextareaAutosize)`
@@ -58,6 +59,31 @@ export const CustomTextareaAutosize = styled(TextareaAutosize)`
   border-bottom: 2px solid #0045ff;
   resize: none;
   padding: 4px 0;
+  z-index: 2;
+`;
+
+export const Suggestion = styled.div`
+  position: absolute;
+  background: white;
+  /* border-radius: 0 0 50px 50px; */
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+  width: 75%;
+  opacity: 0;
+  bottom: -500px;
+  /* transition: 0.2s linear; */
+  padding: 10px 20px 5px 20px;
+  cursor: pointer;
+  text-align: justify;
+
+  :hover {
+    background: #0045ff;
+    color: white;
+  }
+
+  ${props => (props.offsetHeight && props.isFocused && css`
+    opacity: 1;
+    bottom: -${props.offsetHeight}px;
+  `)}
 `;
 
 export const SendButton = styled.button`
@@ -75,7 +101,6 @@ export const SendButton = styled.button`
 export const WithoutAnyQuestion = styled.p`
   width: 100%;
   text-align: center;
-
   color: #252e48;
   font-weight: bold;
   font-size: 16px;
