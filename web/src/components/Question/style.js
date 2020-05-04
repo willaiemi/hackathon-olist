@@ -57,7 +57,6 @@ export const CustomTextareaAutosize = styled(TextareaAutosize)`
   font-size: 18px;
   border-bottom: 2px solid #0045ff;
   resize: none;
-
   padding: 4px 0;
 `;
 

@@ -43,7 +43,7 @@ function Sidebar({
             active={tabActive === 'payment'}
           >
             Pagamento
-            <span>1</span>
+            <span>3</span>
           </NavbarItem>
 
           <NavbarItem

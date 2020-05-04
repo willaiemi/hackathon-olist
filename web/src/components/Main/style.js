@@ -5,6 +5,8 @@ export const MainContainer = styled.div`
   margin: 10px auto auto;
   max-width: 1280px;
   display: flex;
+  box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.16);
+  border-radius: 50px;
   /* \/ remove \/ */
   position: absolute;
   bottom: 0px;
@@ -90,6 +92,7 @@ export const Tab = styled.div`
   margin-right: 10px;
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.57);
   font-weight: bold;
+  cursor: pointer;
 
   ${props => props.active && `
     background: #0045ff;
