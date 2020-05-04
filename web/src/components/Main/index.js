@@ -39,7 +39,6 @@ function Main() {
         
         <Graph />
         
-        {/* CAIXA DE PERGUNTAS */}
         <div>
           <div style={{ display: 'flex', }}>
             <Tab active>
@@ -65,50 +64,15 @@ function Main() {
             </QuestionInformationColumn>
           </QuestionsInformation>
           
-          {/* WHITE BOX */}
           <WhiteBox>
-            {/* BUSCAR */}
-            <div
-              style={{
-                width: '100%',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-              }}
-            >
-              <div
-                style={{
-                  height: '50px',
-                  width: '70%',
-                  margin: '20px 0',
-                }}
-              >
-                <input 
-                  style={{
-                    height: '100%',
-                    width: '100%',
-                    paddingLeft: '20px',
-                    border: 'none',
-                    borderRadius: '50px',
-                    boxShadow: '0 3px 6px 0 rgba(0, 0, 0, 0.16)',
-                    fontSize: '18px',
-                  }}
-                  type="text"
-                  placeholder="Buscar pergunta"
-                />
-              </div>
-            </div>
-            {/* /BUSCAR */}
-          
             {list.map((item) => (
               <Question
                 key={item}
               />
             ))}
           </WhiteBox>
-          {/* /WHITE BOX */}
+        
         </div>
-        {/* /CAIXA DE PERGUNTAS */}
       </MainContent>
     </MainContainer>
   );
