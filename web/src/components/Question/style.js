@@ -69,7 +69,7 @@ export const Suggestion = styled.div`
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
   width: 75%;
   opacity: 0;
-  bottom: -500px;
+  top: 31px;
   /* transition: 0.2s linear; */
   padding: 10px 20px 5px 20px;
   cursor: pointer;
@@ -80,9 +80,9 @@ export const Suggestion = styled.div`
     color: white;
   }
 
-  ${props => (props.offsetHeight && props.isFocused && css`
+  ${props => (props.textareaHeight && props.isFocused && css`
     opacity: 1;
-    bottom: -${props.offsetHeight}px;
+    top: ${props.textareaHeight}px;
   `)}
 `;
 

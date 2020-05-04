@@ -24,7 +24,7 @@ function Main() {
       title: 'BM275GC - Monitor Gamer Bluecase Led 27 Curvo',
       question: 'Em quantas vezes posso fazer o monitor?',
       type: 'payment',
-      suggestion: 'Você pode fazer o pagamento em até 6x sem juros. Você pode fazer o pagamento em até 6x sem juros. Você pode fazer o pagamento em até 6x sem juros. Você pode fazer o pagamento em até 6x sem juros.',
+      suggestion: 'Você pode fazer o pagamento em até 6x sem juros.',
     },
     {
       id: 2,
@@ -41,8 +41,32 @@ function Main() {
       question: 'Vocês aceitam boleto?',
       type: 'payment',
       suggestion: 'No momento o Mercado Livre não está aceitando boleto.',
+    },
+    {
+      id: 5,
+      img: 'https://olist-v2-dev.s3.amazonaws.com/products-images/f0690746da1a4aa762545481b1a94980656c723e.jpeg',
+      title: 'CP997XL - Cadeira Escritório New Ergon Presidente',
+      question: 'A cadeira possui ajuste ergonômico?',
+      type: 'description',
+      suggestion: 'Sim, todas as cadeiras desse modelo possuem o ajuste.',
+    },
+    {
+      id: 6,
+      img: 'https://olist-v2-dev.s3.amazonaws.com/products-images/1315d104d32de9b5f435426b8ae6aa6dab78f39a.jpeg',
+      title: 'XZ876AG - Churrasqueira Ecológica Com Bolsa e Proteção Refratária',
+      question: 'Vocês entregam em Santa Catarina?',
+      type: 'delivery',
+      suggestion: 'No momento entregamos apenas na cidade de São Paulo e Minas Gerais.',
     }
   ]);
+
+  const sendAnswer = useCallback(
+    (id) => {
+      console.log("Id:", id);
+      setList(list.filter(item => item.id !== id));
+    },
+    [list, setList],
+  );
 
   const [tabName, setTabName] = useState('all');
   const [tabTitle, setTabTitle] = useState('Todas as perguntas');
@@ -77,7 +101,7 @@ function Main() {
     if (listItems.length) {
       return listItems.map(item => {
         return (
-          <Question key={item.id} item={item} />  
+          <Question key={item.id} item={item} sendAnswer={sendAnswer} />  
         );
       })
     } else {
@@ -86,7 +110,7 @@ function Main() {
       );
     }
 
-  }, [tabName]);
+  }, [tabName, list]);
 
   useEffect(() => {
     renderQuestions();
@@ -109,8 +133,9 @@ function Main() {
         <h2>{tabTitle}</h2>
         
         <LeftAlignedItemsRow>
-          <SelectGraphPeriod>
-            <option selected>Mensal</option>
+          <SelectGraphPeriod value="mensal">
+            <option value="mensal">Mensal</option>
+            <option value="semanal">Semanal</option>
           </SelectGraphPeriod>
         </LeftAlignedItemsRow>
         

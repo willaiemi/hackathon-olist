@@ -29,6 +29,7 @@ function Sidebar({
             active={tabActive === 'delivery'}
           >
             Entrega
+            <span>1</span>
           </NavbarItem>
 
           <NavbarItem
@@ -58,6 +59,7 @@ function Sidebar({
             active={tabActive === 'description'}
           >
             Descrição
+            <span>1</span>
           </NavbarItem>
         </Navbar>
       </GreyContainer>

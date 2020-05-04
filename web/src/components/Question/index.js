@@ -10,26 +10,17 @@ import {
   WithoutAnyQuestion,
 } from './style';
 
-function Question({ item }) {
-  const suggestionRef = useRef(null);
+function Question({ item, sendAnswer }) {
   const answerFieldRef = useRef(null);
-  const [suggestionOffsetHeight, setSuggestionOffsetHeight] = useState('');
+  const [textareaHeight, setTextareaHeight] = useState('');
   const [isAnswerFocused, setIsAnswerFocused] = useState(false);
   const [answer, setAnswer] = useState('');
 
-  useEffect(
-    () => {
-      console.log("Teste", isAnswerFocused);
-      // setIsAnswerFocused(answerFieldRef.current.)
+  const onChangeHeight = useCallback(
+    (height) => {
+      setTextareaHeight(height);
     },
-    [isAnswerFocused],
-  );
-
-  useEffect(
-    () => {
-      setSuggestionOffsetHeight(suggestionRef?.current?.offsetHeight);
-    },
-    [suggestionRef],
+    [setTextareaHeight],
   );
 
   const onChange = useCallback(
@@ -41,13 +32,10 @@ function Question({ item }) {
 
   const chooseSuggestion = useCallback(
     () => {
-      console.log("SUGEST˜AO: ", item.suggestion);
       setAnswer(item.suggestion);
     },
-    [setAnswer, item.suggestion],
+    [setAnswer, item],
   );
-
-  console.log('answer:', answer)
 
   return (
     <QuestionContainer>
@@ -64,27 +52,21 @@ function Question({ item }) {
               <CustomTextareaAutosize
                 type="text"
                 ref={answerFieldRef}
-                onFocus={() => setIsAnswerFocused(true)}
-                onBlur={() => {
-                  console.log('onBlur')
-                  setIsAnswerFocused(false)
-                }}
+                onFocus={() => { setIsAnswerFocused(true) }}
+                onBlur={() => { setIsAnswerFocused(false) }}
+                onHeightChange={onChangeHeight}
                 placeholder="Digite sua resposta"
                 onChange={onChange}
                 value={answer}
               ></CustomTextareaAutosize>
               <Suggestion
-                ref={suggestionRef}
-                offsetHeight={suggestionOffsetHeight}
+                textareaHeight={textareaHeight}
                 isFocused={isAnswerFocused}
-                onClick={() => {
-                  console.log('onClick');
-                  alert('cu')
-                }}
+                onClick={chooseSuggestion}
               >
                 {item.suggestion}
               </Suggestion>
-              <SendButton>
+              <SendButton onClick={() => sendAnswer(item.id)}>
                 Enviar
               </SendButton>
             </AnswerContainer>
