@@ -3,9 +3,8 @@ import styled from 'styled-components';
 export const Container = styled.section`
   width: 100%;
   max-height: 300px;
-  margin-left: 22px;
   display: flex;
-
+  margin-bottom: 20px;
   overflow: hidden;
 
   border-radius: 37px;

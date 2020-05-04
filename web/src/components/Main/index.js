@@ -81,6 +81,7 @@ function Main() {
             Mensal
           </button>
         </div>
+        <Graph />
         
         {/* CAIXA DE PERGUNTAS */}
         <div> 
