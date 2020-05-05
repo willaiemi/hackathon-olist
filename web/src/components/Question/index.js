@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState, useCallback } from 'react';
+import React, { useRef, useState, useCallback } from 'react';
 import {
   QuestionContainer,
   ImageOuterContainer,
@@ -42,7 +42,7 @@ function Question({ item, sendAnswer }) {
       {item ? (
         <>
           <ImageOuterContainer>
-            <img src={item.img} />
+            <img src={item.img} alt={item.title} />
           </ImageOuterContainer>
 
           <QuestionContent>
