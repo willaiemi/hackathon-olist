@@ -13,63 +13,25 @@ import {
   Tab,
   WhiteBox,
 } from './style';
-
 import iconXLSX from '../../assets/icon-xlsx.svg';
+import { MOCK_QUESTIONS } from '../../helpers/constants';
 
 function Main() {
-  const [list, setList] = useState([
-    {
-      id: 1,
-      img: 'https://olist-v2-dev.s3.amazonaws.com/products-images/821b814105e186976b67d56eb381a3a855f275c0.jpeg',
-      title: 'BM275GC - Monitor Gamer Bluecase Led 27 Curvo',
-      question: 'Em quantas vezes posso fazer o monitor?',
-      type: 'payment',
-      suggestion: 'Você pode fazer o pagamento em até 6x sem juros.',
-    },
-    {
-      id: 2,
-      img: 'https://olist-v2-dev.s3.amazonaws.com/products-images/d2f3973f-5acd-4346-9f09-a3df6b3091db.jpg',
-      title: 'TG997MC - Teclado Gamer Multimídia CHROMATIC GK-710 LED Fortrek',
-      question: 'Posso pagar com cartão de crédito?',
-      type: 'payment',
-      suggestion: 'Sim, temos a opção de pagamento com cartão de crédito.',
-    },
-    {
-      id: 3,
-      img: 'https://olist-v2-dev.s3.amazonaws.com/products-images/0c9f34e4489441be8837abe68b0f6bbcc58a5521.jpeg',
-      title: 'CI544WW - Carregador Para Iphone X 5W Usb Power Lightning',
-      question: 'Vocês aceitam boleto?',
-      type: 'payment',
-      suggestion: 'No momento o Mercado Livre não está aceitando boleto.',
-    },
-    {
-      id: 5,
-      img: 'https://olist-v2-dev.s3.amazonaws.com/products-images/f0690746da1a4aa762545481b1a94980656c723e.jpeg',
-      title: 'CP997XL - Cadeira Escritório New Ergon Presidente',
-      question: 'A cadeira possui ajuste ergonômico?',
-      type: 'description',
-      suggestion: 'Sim, todas as cadeiras desse modelo possuem o ajuste.',
-    },
-    {
-      id: 6,
-      img: 'https://olist-v2-dev.s3.amazonaws.com/products-images/1315d104d32de9b5f435426b8ae6aa6dab78f39a.jpeg',
-      title: 'XZ876AG - Churrasqueira Ecológica Com Bolsa e Proteção Refratária',
-      question: 'Vocês entregam em Santa Catarina?',
-      type: 'delivery',
-      suggestion: 'No momento entregamos apenas na cidade de São Paulo e Minas Gerais.',
-    }
-  ]);
+  const [list, setList] = useState(MOCK_QUESTIONS);
 
   const sendAnswer = useCallback(
     (id) => {
-      console.log("Id:", id);
-      setList(list.filter(item => item.id !== id));
+      setList(list.map(item => ({
+        ...item,
+        answered: item.id === id,
+      })));
     },
     [list, setList],
   );
 
   const [tabName, setTabName] = useState('all');
   const [tabTitle, setTabTitle] = useState('Todas as perguntas');
+  const [isPendingTab, setIsPendingTab] = useState(false);
 
   useEffect(() => {
     switch (tabName) {
@@ -96,25 +58,24 @@ function Main() {
   }, [tabName]);
 
   const renderQuestions = useCallback(() => {
-    const listItems = list.filter(item => item.type === tabName || tabName === 'all');
+    const listItems = list.filter(
+      item => (item.type === tabName || tabName === 'all') && (!isPendingTab !== !item.answered)
+    );
 
     if (listItems.length) {
-      return listItems.map(item => {
-        return (
-          <Question key={item.id} item={item} sendAnswer={sendAnswer} />  
-        );
-      })
+      return listItems.map(item => (
+        <Question key={item.id} item={item} sendAnswer={sendAnswer} />
+      ));
     } else {
       return (
-        <Question key={null} item={null} />  
+        <Question key={null} item={null} />
       );
     }
-
-  }, [tabName, list]);
+  }, [tabName, list, isPendingTab, sendAnswer]);
 
   useEffect(() => {
     renderQuestions();
-  }, [tabName]);
+  }, [tabName, isPendingTab, renderQuestions]);
 
   return (
     <MainContainer>
@@ -125,32 +86,38 @@ function Main() {
       <MainContent>
         <LeftAlignedItemsRow>
           <ExportXLSXButton>
-            <img src={iconXLSX} />
+            <img src={iconXLSX} alt="Ícone do Microsoft Excel" />
             <span>Exportar</span>
           </ExportXLSXButton>
         </LeftAlignedItemsRow>
-        
+
         <h2>{tabTitle}</h2>
-        
+
         <LeftAlignedItemsRow>
           <SelectGraphPeriod value="mensal">
             <option value="mensal">Mensal</option>
             <option value="semanal">Semanal</option>
           </SelectGraphPeriod>
         </LeftAlignedItemsRow>
-        
+
         <Graph graphData={tabName} />
-        
+
         <div>
           <div style={{ display: 'flex', }}>
-            <Tab active>
+            <Tab
+              onClick={() => { setIsPendingTab(true) }}
+              active={isPendingTab}
+            >
               Perguntas pendentes
             </Tab>
-            <Tab>
+            <Tab
+              onClick={() => { setIsPendingTab(false) }}
+              active={!isPendingTab}
+            >
               Perguntas respondidas
             </Tab>
           </div>
-          
+
           <QuestionsInformation>
             <QuestionInformationColumn>
               <h4>Perguntas pendentes</h4>
@@ -165,11 +132,10 @@ function Main() {
               <p>309</p>
             </QuestionInformationColumn>
           </QuestionsInformation>
-          
+
           <WhiteBox>
             {renderQuestions()}
           </WhiteBox>
-        
         </div>
       </MainContent>
     </MainContainer>

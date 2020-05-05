@@ -1,0 +1,47 @@
+export const MOCK_QUESTIONS = [
+  {
+    id: 0,
+    img: 'https://olist-v2-dev.s3.amazonaws.com/products-images/821b814105e186976b67d56eb381a3a855f275c0.jpeg',
+    title: 'BM275GC - Monitor Gamer Bluecase Led 27 Curvo',
+    question: 'Em quantas vezes posso fazer o monitor?',
+    type: 'payment',
+    suggestion: 'Você pode fazer o pagamento em até 6x sem juros.',
+    answered: false,
+  },
+  {
+    id: 1,
+    img: 'https://olist-v2-dev.s3.amazonaws.com/products-images/d2f3973f-5acd-4346-9f09-a3df6b3091db.jpg',
+    title: 'TG997MC - Teclado Gamer Multimídia CHROMATIC GK-710 LED Fortrek',
+    question: 'Posso pagar com cartão de crédito?',
+    type: 'payment',
+    suggestion: 'Sim, temos a opção de pagamento com cartão de crédito.',
+    answered: false,
+  },
+  {
+    id: 2,
+    img: 'https://olist-v2-dev.s3.amazonaws.com/products-images/0c9f34e4489441be8837abe68b0f6bbcc58a5521.jpeg',
+    title: 'CI544WW - Carregador Para Iphone X 5W Usb Power Lightning',
+    question: 'Vocês aceitam boleto?',
+    type: 'payment',
+    suggestion: 'No momento o Mercado Livre não está aceitando boleto.',
+    answered: false,
+  },
+  {
+    id: 3,
+    img: 'https://olist-v2-dev.s3.amazonaws.com/products-images/f0690746da1a4aa762545481b1a94980656c723e.jpeg',
+    title: 'CP997XL - Cadeira Escritório New Ergon Presidente',
+    question: 'A cadeira possui ajuste ergonômico?',
+    type: 'description',
+    suggestion: 'Sim, todas as cadeiras desse modelo possuem o ajuste.',
+    answered: false,
+  },
+  {
+    id: 4,
+    img: 'https://olist-v2-dev.s3.amazonaws.com/products-images/1315d104d32de9b5f435426b8ae6aa6dab78f39a.jpeg',
+    title: 'XZ876AG - Churrasqueira Ecológica Com Bolsa e Proteção Refratária',
+    question: 'Vocês entregam em Santa Catarina?',
+    type: 'delivery',
+    suggestion: 'No momento entregamos apenas na cidade de São Paulo e Minas Gerais.',
+    answered: false,
+  }
+];
