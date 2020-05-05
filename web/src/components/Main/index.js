@@ -31,7 +31,7 @@ function Main() {
 
   const [tabName, setTabName] = useState('all');
   const [tabTitle, setTabTitle] = useState('Todas as perguntas');
-  const [isPendingTab, setIsPendingTab] = useState(false);
+  const [isPendingTab, setIsPendingTab] = useState(true);
 
   useEffect(() => {
     switch (tabName) {
